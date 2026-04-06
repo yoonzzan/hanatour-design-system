@@ -1,0 +1,93 @@
+{
+  "colors": {
+    "master": {
+      "purple": { "value": "#5E2BB8", "type": "color" },
+      "mint": { "value": "#08D1D9", "type": "color" }
+    },
+    "tint-purple": {
+      "9": { "value": "#6E3FBF", "type": "color" },
+      "8": { "value": "#7D55C7", "type": "color" },
+      "7": { "value": "#8F6BCD", "type": "color" },
+      "6": { "value": "#9E81D5", "type": "color" },
+      "5": { "value": "#AF95DC", "type": "color" },
+      "4": { "value": "#BFAAE3", "type": "color" },
+      "3": { "value": "#D0BFEB", "type": "color" },
+      "2": { "value": "#DFD5F0", "type": "color" },
+      "1": { "value": "#EEEAF8", "type": "color" }
+    },
+    "tint-mint": {
+      "9": { "value": "#1FD6DC", "type": "color" },
+      "8": { "value": "#39DBE0", "type": "color" },
+      "7": { "value": "#51DFE3", "type": "color" },
+      "6": { "value": "#6CE3E9", "type": "color" },
+      "5": { "value": "#82E8EC", "type": "color" },
+      "4": { "value": "#9CEDF0", "type": "color" },
+      "3": { "value": "#B5F0F4", "type": "color" },
+      "2": { "value": "#CEF6F6", "type": "color" },
+      "1": { "value": "#E6FAFB", "type": "color" }
+    },
+    "extended": {
+      "soft-purple": { "value": "#7D4BDC", "type": "color" },
+      "active-purple": { "value": "#6E2DD2", "type": "color" },
+      "eco-purple": { "value": "#8A75D0", "type": "color" },
+      "urban-purple": { "value": "#541CB8", "type": "color" },
+      "friendly-purple": { "value": "#540099", "type": "color" },
+      "premium-purple": { "value": "#31007B", "type": "color" },
+      "soft-mint": { "value": "#70DCE6", "type": "color" },
+      "active-mint": { "value": "#00CFE5", "type": "color" },
+      "eco-mint": { "value": "#50B4C8", "type": "color" },
+      "urban-mint": { "value": "#08CDDE", "type": "color" },
+      "friendly-mint": { "value": "#00C9D4", "type": "color" },
+      "premium-mint": { "value": "#00768F", "type": "color" }
+    },
+    "neutral-gray": {
+      "white": { "value": "#FFFFFF", "type": "color" },
+      "bright": { "value": "#EEEEF0", "type": "color" },
+      "light": { "value": "#D0D0D2", "type": "color" },
+      "medium": { "value": "#B5B5B6", "type": "color" },
+      "base": { "value": "#9FA0A0", "type": "color" },
+      "dark": { "value": "#73747A", "type": "color" },
+      "slate": { "value": "#53565F", "type": "color" },
+      "deep": { "value": "#313339", "type": "color" },
+      "black": { "value": "#000000", "type": "color" }
+    },
+    "accent": {
+      "yellow": { "value": "#FFE338", "type": "color" },
+      "lime": { "value": "#C6EB2F", "type": "color" },
+      "green": { "value": "#00BF8F", "type": "color" },
+      "sky-blue": { "value": "#4395FF", "type": "color" },
+      "blue": { "value": "#2263E5", "type": "color" },
+      "pink": { "value": "#FF5AD2", "type": "color" }
+    }
+  },
+  "typography": {
+    "fontFamilies": {
+      "base": { "value": "'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif", "type": "fontFamily" },
+      "en": { "value": "'Inter', system-ui, sans-serif", "type": "fontFamily" }
+    },
+    "fontSizes": {
+      "xs": { "value": "11px", "type": "dimension" },
+      "sm": { "value": "13px", "type": "dimension" },
+      "base": { "value": "14px", "type": "dimension" },
+      "md": { "value": "15px", "type": "dimension" },
+      "lg": { "value": "18px", "type": "dimension" },
+      "xl": { "value": "20px", "type": "dimension" },
+      "2xl": { "value": "24px", "type": "dimension" },
+      "3xl": { "value": "28px", "type": "dimension" }
+    },
+    "fontWeights": {
+      "regular": { "value": "400", "type": "fontWeight" },
+      "medium": { "value": "500", "type": "fontWeight" },
+      "semibold": { "value": "600", "type": "fontWeight" },
+      "bold": { "value": "700", "type": "fontWeight" },
+      "extrabold": { "value": "800", "type": "fontWeight" }
+    }
+  },
+  "radii": {
+    "sm": { "value": "6px", "type": "dimension" },
+    "md": { "value": "10px", "type": "dimension" },
+    "lg": { "value": "16px", "type": "dimension" },
+    "xl": { "value": "24px", "type": "dimension" },
+    "pill": { "value": "100px", "type": "dimension" }
+  }
+}

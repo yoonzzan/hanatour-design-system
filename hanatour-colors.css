@@ -1,0 +1,158 @@
+/**
+ * Hanatour Color Design System
+ * 2026 Brand Color System & Brand Guide
+ *
+ * 사용법: @import './hanatour-colors.css'; (또는 전역 CSS 최상단에 추가)
+ */
+
+:root {
+  /* ─────────────────────────────────────────
+   * 1. Master Colors (브랜드 핵심 색상)
+   * ───────────────────────────────────────── */
+  --ht-master-purple: #5E2BB8;  /* Pantone 2091C | CMYK C86 M97 Y0 K0  */
+  --ht-master-mint:   #08D1D9;  /* Pantone 3115C | CMYK C70 M0 Y15 K0  */
+
+
+  /* ─────────────────────────────────────────
+   * 2. Tint Colors — Purple (9단계 명도 스케일)
+   * ───────────────────────────────────────── */
+  --ht-tint-purple-9: #6E3FBF;  /* 가장 진함 */
+  --ht-tint-purple-8: #7D55C7;
+  --ht-tint-purple-7: #8F6BCD;
+  --ht-tint-purple-6: #9E81D5;
+  --ht-tint-purple-5: #AF95DC;
+  --ht-tint-purple-4: #BFAAE3;
+  --ht-tint-purple-3: #D0BFEB;
+  --ht-tint-purple-2: #DFD5F0;
+  --ht-tint-purple-1: #EEEAF8;  /* 가장 연함 */
+
+
+  /* ─────────────────────────────────────────
+   * 3. Tint Colors — Mint (9단계 명도 스케일)
+   * ───────────────────────────────────────── */
+  --ht-tint-mint-9: #1FD6DC;  /* 가장 진함 */
+  --ht-tint-mint-8: #39DBE0;
+  --ht-tint-mint-7: #51DFE3;
+  --ht-tint-mint-6: #6CE3E9;
+  --ht-tint-mint-5: #82E8EC;
+  --ht-tint-mint-4: #9CEDF0;
+  --ht-tint-mint-3: #B5F0F4;
+  --ht-tint-mint-2: #CEF6F6;
+  --ht-tint-mint-1: #E6FAFB;  /* 가장 연함 */
+
+
+  /* ─────────────────────────────────────────
+   * 4. Extended Colors — Purple (콘텐츠 목적별)
+   * ───────────────────────────────────────── */
+  --ht-soft-purple:     #7D4BDC;  /* 봄/설렘 여행 | Pantone 2089C */
+  --ht-active-purple:   #6E2DD2;  /* 액티비티/에너지 | Pantone 2090C */
+  --ht-eco-purple:      #8A75D0;  /* 친환경/웰니스 | Pantone 2101C */
+  --ht-urban-purple:    #541CB8;  /* MZ/도시 감성 | Pantone 2098C */
+  --ht-friendly-purple: #540099;  /* 가족 여행 | Pantone Medium Purple C */
+  --ht-premium-purple:  #31007B;  /* 럭셔리/프리미엄 | Pantone 2685C */
+
+
+  /* ─────────────────────────────────────────
+   * 5. Extended Colors — Mint (콘텐츠 목적별)
+   * ───────────────────────────────────────── */
+  --ht-soft-mint:     #70DCE6;  /* 봄/설렘 여행 | Pantone 2225C */
+  --ht-active-mint:   #00CFE5;  /* 액티비티/에너지 | Pantone 311C */
+  --ht-eco-mint:      #50B4C8;  /* 친환경/웰니스 | Pantone 6127C */
+  --ht-urban-mint:    #08CDDE;  /* MZ/도시 감성 | Pantone 2226C */
+  --ht-friendly-mint: #00C9D4;  /* 가족 여행 | Pantone 319C */
+  --ht-premium-mint:  #00768F;  /* 럭셔리/프리미엄 | Pantone 2223C */
+
+
+  /* ─────────────────────────────────────────
+   * 6. Neutral Colors — Gray
+   * ───────────────────────────────────────── */
+  --ht-white:        #FFFFFF;
+  --ht-bright-gray:  #EEEEF0;
+  --ht-light-gray:   #D0D0D2;
+  --ht-medium-gray:  #B5B5B6;
+  --ht-gray:         #9FA0A0;
+  --ht-dark-gray:    #73747A;
+  --ht-slate-gray:   #53565F;
+  --ht-deep-gray:    #313339;
+  --ht-black:        #000000;
+
+
+  /* ─────────────────────────────────────────
+   * 7. Neutral Colors — Beige
+   * ───────────────────────────────────────── */
+  --ht-bright-beige: #F6F1E8;
+  --ht-light-beige:  #E8DCC4;
+  --ht-medium-beige: #E5CB9E;
+  --ht-beige:        #AC916D;
+  --ht-dark-beige:   #80705E;
+  --ht-slate-beige:  #64584A;
+  --ht-deep-beige:   #4A4138;
+
+
+  /* ─────────────────────────────────────────
+   * 8. Accent Colors (포인트 색상)
+   * ───────────────────────────────────────── */
+  --ht-accent-yellow:   #FFE338;  /* Pantone 107C  */
+  --ht-accent-lime:     #C6EB2F;  /* Pantone 2297C */
+  --ht-accent-green:    #00BF8F;  /* Pantone 2414C */
+  --ht-accent-sky-blue: #4395FF;  /* Pantone 279C  */
+  --ht-accent-blue:     #2263E5;  /* Pantone 2387C */
+  --ht-accent-pink:     #FF5AD2;  /* Pantone 238C  */
+
+  /* Accent Tint 1 */
+  --ht-accent-yellow-t1:   #FEE856;
+  --ht-accent-lime-t1:     #CFED4D;
+  --ht-accent-green-t1:    #27C9A0;
+  --ht-accent-sky-blue-t1: #5FA4FF;
+  --ht-accent-blue-t1:     #457BE8;
+  --ht-accent-pink-t1:     #FF72D8;
+
+  /* Accent Tint 2 */
+  --ht-accent-yellow-t2:   #FFEC74;
+  --ht-accent-lime-t2:     #D7F16C;
+  --ht-accent-green-t2:    #4CD2B1;
+  --ht-accent-sky-blue-t2: #7BB5FF;
+  --ht-accent-blue-t2:     #6592ED;
+  --ht-accent-pink-t2:     #FF8CE1;
+
+  /* Accent Tint 3 */
+  --ht-accent-yellow-t3:   #FFF091;
+  --ht-accent-lime-t3:     #DFF48D;
+  --ht-accent-green-t3:    #74DCC3;
+  --ht-accent-sky-blue-t3: #98C5FF;
+  --ht-accent-blue-t3:     #87A9F1;
+  --ht-accent-pink-t3:     #FFA4E7;
+
+
+  /* ─────────────────────────────────────────
+   * 9. Semantic Aliases (역할별 시맨틱 토큰)
+   * ───────────────────────────────────────── */
+
+  /* 배경 */
+  --ht-bg-primary:   var(--ht-white);
+  --ht-bg-subtle:    var(--ht-bright-gray);
+  --ht-bg-warm:      var(--ht-bright-beige);
+
+  /* 텍스트 */
+  --ht-text-primary:   var(--ht-deep-gray);    /* #313339 */
+  --ht-text-secondary: var(--ht-slate-gray);   /* #53565F */
+  --ht-text-disabled:  var(--ht-medium-gray);  /* #B5B5B6 */
+  --ht-text-inverse:   var(--ht-white);
+
+  /* 버튼 */
+  --ht-btn-primary-bg:      var(--ht-master-purple);
+  --ht-btn-primary-text:    var(--ht-white);
+  --ht-btn-secondary-bg:    transparent;
+  --ht-btn-secondary-border: var(--ht-master-purple);
+  --ht-btn-cta-bg:          var(--ht-accent-yellow);
+  --ht-btn-cta-text:        var(--ht-master-purple);
+
+  /* 링크 */
+  --ht-link-color:   var(--ht-master-purple);
+  --ht-link-visited: var(--ht-tint-purple-6);
+
+  /* 테두리 */
+  --ht-border-default: var(--ht-light-gray);
+  --ht-border-strong:  var(--ht-slate-gray);
+  --ht-border-brand:   var(--ht-master-purple);
+}
