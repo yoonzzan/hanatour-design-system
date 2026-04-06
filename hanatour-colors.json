@@ -1,0 +1,134 @@
+{
+  "$schema": "https://design-tokens.org/schema",
+  "meta": {
+    "name": "Hanatour Color Design System",
+    "version": "2026.1.0",
+    "source": "260331_HANATOUR_Color.pdf",
+    "updated": "2026-04-03"
+  },
+  "color": {
+    "master": {
+      "purple": {
+        "$value": "#5E2BB8",
+        "$type": "color",
+        "pantone": "2091C",
+        "cmyk": "C86 M97 Y0 K0",
+        "rgb": "R94 G43 B184",
+        "$description": "하나투어 브랜드 메인 컬러 — 전문성·신뢰"
+      },
+      "mint": {
+        "$value": "#08D1D9",
+        "$type": "color",
+        "pantone": "3115C",
+        "cmyk": "C70 M0 Y15 K0",
+        "rgb": "R8 G209 B217",
+        "$description": "하나투어 브랜드 서브 컬러 — 설렘·영감"
+      }
+    },
+    "tint": {
+      "purple": {
+        "9": { "$value": "#6E3FBF", "$type": "color", "cmyk": "C78 M87 Y0 K0" },
+        "8": { "$value": "#7D55C7", "$type": "color", "cmyk": "C69 M78 Y0 K0" },
+        "7": { "$value": "#8F6BCD", "$type": "color", "cmyk": "C61 M70 Y0 K0" },
+        "6": { "$value": "#9E81D5", "$type": "color", "cmyk": "C52 M60 Y0 K0" },
+        "5": { "$value": "#AF95DC", "$type": "color", "cmyk": "C43 M51 Y0 K0" },
+        "4": { "$value": "#BFAAE3", "$type": "color", "cmyk": "C34 M41 Y0 K0" },
+        "3": { "$value": "#D0BFEB", "$type": "color", "cmyk": "C25 M33 Y0 K0" },
+        "2": { "$value": "#DFD5F0", "$type": "color", "cmyk": "C16 M22 Y0 K0" },
+        "1": { "$value": "#EEEAF8", "$type": "color", "cmyk": "C9 M13 Y0 K0" }
+      },
+      "mint": {
+        "9": { "$value": "#1FD6DC", "$type": "color", "cmyk": "C62 M4 Y16 K0" },
+        "8": { "$value": "#39DBE0", "$type": "color", "cmyk": "C56 M4 Y14 K0" },
+        "7": { "$value": "#51DFE3", "$type": "color", "cmyk": "C51 M4 Y12 K0" },
+        "6": { "$value": "#6CE3E9", "$type": "color", "cmyk": "C43 M4 Y10 K0" },
+        "5": { "$value": "#82E8EC", "$type": "color", "cmyk": "C36 M3 Y9 K0" },
+        "4": { "$value": "#9CEDF0", "$type": "color", "cmyk": "C29 M3 Y7 K0" },
+        "3": { "$value": "#B5F0F4", "$type": "color", "cmyk": "C23 M2 Y6 K0" },
+        "2": { "$value": "#CEF6F6", "$type": "color", "cmyk": "C14 M2 Y2 K0" },
+        "1": { "$value": "#E6FAFB", "$type": "color", "cmyk": "C10 M0 Y2 K0" }
+      }
+    },
+    "extended": {
+      "purple": {
+        "soft":    { "$value": "#7D4BDC", "$type": "color", "pantone": "2089C", "$description": "봄/설렘 여행 콘텐츠" },
+        "active":  { "$value": "#6E2DD2", "$type": "color", "pantone": "2090C", "$description": "액티비티/에너지 여행" },
+        "eco":     { "$value": "#8A75D0", "$type": "color", "pantone": "2101C", "$description": "친환경/웰니스 여행" },
+        "urban":   { "$value": "#541CB8", "$type": "color", "pantone": "2098C", "$description": "MZ/도시 감성 여행" },
+        "friendly":{ "$value": "#540099", "$type": "color", "pantone": "Medium Purple C", "$description": "가족 여행" },
+        "premium": { "$value": "#31007B", "$type": "color", "pantone": "2685C", "$description": "럭셔리/프리미엄 여행" }
+      },
+      "mint": {
+        "soft":    { "$value": "#70DCE6", "$type": "color", "pantone": "2225C", "$description": "봄/설렘 여행 콘텐츠" },
+        "active":  { "$value": "#00CFE5", "$type": "color", "pantone": "311C",  "$description": "액티비티/에너지 여행" },
+        "eco":     { "$value": "#50B4C8", "$type": "color", "pantone": "6127C", "$description": "친환경/웰니스 여행" },
+        "urban":   { "$value": "#08CDDE", "$type": "color", "pantone": "2226C", "$description": "MZ/도시 감성 여행" },
+        "friendly":{ "$value": "#00C9D4", "$type": "color", "pantone": "319C",  "$description": "가족 여행" },
+        "premium": { "$value": "#00768F", "$type": "color", "pantone": "2223C", "$description": "럭셔리/프리미엄 여행" }
+      }
+    },
+    "neutral": {
+      "gray": {
+        "white":      { "$value": "#FFFFFF", "$type": "color", "cmyk": "C0 M0 Y0 K0" },
+        "brightGray": { "$value": "#EEEEF0", "$type": "color", "cmyk": "C0 M0 Y0 K10" },
+        "lightGray":  { "$value": "#D0D0D2", "$type": "color", "cmyk": "C0 M0 Y0 K25" },
+        "mediumGray": { "$value": "#B5B5B6", "$type": "color", "cmyk": "C0 M0 Y0 K40" },
+        "gray":       { "$value": "#9FA0A0", "$type": "color", "cmyk": "C0 M0 Y0 K50" },
+        "darkGray":   { "$value": "#73747A", "$type": "color", "cmyk": "C9 M8 Y2 K64" },
+        "slateGray":  { "$value": "#53565F", "$type": "color", "cmyk": "C17 M9 Y1 K76" },
+        "deepGray":   { "$value": "#313339", "$type": "color", "cmyk": "C20 M9 Y1 K89" },
+        "black":      { "$value": "#000000", "$type": "color", "cmyk": "C0 M0 Y0 K100" }
+      },
+      "beige": {
+        "bright": { "$value": "#F6F1E8", "$type": "color", "cmyk": "C0 M2 Y5 K0" },
+        "light":  { "$value": "#E8DCC4", "$type": "color", "cmyk": "C0 M9 Y17 K7" },
+        "medium": { "$value": "#E5CB9E", "$type": "color", "cmyk": "C0 M16 Y32 K10" },
+        "beige":  { "$value": "#AC916D", "$type": "color", "cmyk": "C0 M22 Y41 K38" },
+        "dark":   { "$value": "#80705E", "$type": "color", "cmyk": "C0 M14 Y27 K59" },
+        "slate":  { "$value": "#64584A", "$type": "color", "cmyk": "C0 M14 Y22 K76" },
+        "deep":   { "$value": "#4A4138", "$type": "color", "cmyk": "C0 M9 Y20 K86" }
+      }
+    },
+    "accent": {
+      "yellow":  { "$value": "#FFE338", "$type": "color", "pantone": "107C",  "tint1": "#FEE856", "tint2": "#FFEC74", "tint3": "#FFF091" },
+      "lime":    { "$value": "#C6EB2F", "$type": "color", "pantone": "2297C", "tint1": "#CFED4D", "tint2": "#D7F16C", "tint3": "#DFF48D" },
+      "green":   { "$value": "#00BF8F", "$type": "color", "pantone": "2414C", "tint1": "#27C9A0", "tint2": "#4CD2B1", "tint3": "#74DCC3" },
+      "skyBlue": { "$value": "#4395FF", "$type": "color", "pantone": "279C",  "tint1": "#5FA4FF", "tint2": "#7BB5FF", "tint3": "#98C5FF" },
+      "blue":    { "$value": "#2263E5", "$type": "color", "pantone": "2387C", "tint1": "#457BE8", "tint2": "#6592ED", "tint3": "#87A9F1" },
+      "pink":    { "$value": "#FF5AD2", "$type": "color", "pantone": "238C",  "tint1": "#FF72D8", "tint2": "#FF8CE1", "tint3": "#FFA4E7" }
+    },
+    "semantic": {
+      "background": {
+        "primary":  { "$value": "{color.neutral.gray.white}",      "$type": "color" },
+        "subtle":   { "$value": "{color.neutral.gray.brightGray}",  "$type": "color" },
+        "warm":     { "$value": "{color.neutral.beige.bright}",    "$type": "color" }
+      },
+      "text": {
+        "primary":   { "$value": "{color.neutral.gray.deepGray}",   "$type": "color" },
+        "secondary": { "$value": "{color.neutral.gray.slateGray}",  "$type": "color" },
+        "disabled":  { "$value": "{color.neutral.gray.mediumGray}", "$type": "color" },
+        "inverse":   { "$value": "{color.neutral.gray.white}",      "$type": "color" }
+      },
+      "button": {
+        "primaryBg":      { "$value": "{color.master.purple}",   "$type": "color" },
+        "primaryText":    { "$value": "{color.neutral.gray.white}", "$type": "color" },
+        "ctaBg":          { "$value": "{color.accent.yellow}",   "$type": "color" },
+        "ctaText":        { "$value": "{color.master.purple}",   "$type": "color" }
+      },
+      "border": {
+        "default": { "$value": "{color.neutral.gray.lightGray}", "$type": "color" },
+        "strong":  { "$value": "{color.neutral.gray.slateGray}", "$type": "color" },
+        "brand":   { "$value": "{color.master.purple}",          "$type": "color" }
+      }
+    },
+    "themes": {
+      "default":  { "primary": "#5E2BB8", "secondary": "#08D1D9", "description": "기본 서비스 UI" },
+      "soft":     { "primary": "#7D4BDC", "secondary": "#70DCE6", "description": "봄/설렘 여행 콘텐츠" },
+      "active":   { "primary": "#6E2DD2", "secondary": "#00CFE5", "description": "액티비티/에너지 여행" },
+      "eco":      { "primary": "#8A75D0", "secondary": "#50B4C8", "description": "친환경/웰니스 여행" },
+      "urban":    { "primary": "#541CB8", "secondary": "#08CDDE", "description": "MZ/도시 감성 여행" },
+      "friendly": { "primary": "#540099", "secondary": "#00C9D4", "description": "가족 여행" },
+      "premium":  { "primary": "#31007B", "secondary": "#00768F", "description": "럭셔리/프리미엄 여행" }
+    }
+  }
+}

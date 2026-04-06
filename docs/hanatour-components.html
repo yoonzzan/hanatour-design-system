@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hanatour Design System — 컴포넌트 라이브러리</title>
+  <style>
+    /* ════════════════════════════════════════
+     * Hanatour Color Design Token
+     * ════════════════════════════════════════ */
+    :root {
+      /* Master */
+      --ht-master-purple: #5E2BB8;
+      --ht-master-mint:   #08D1D9;
+
+      /* Tint Purple */
+      --ht-tint-purple-9: #6E3FBF; --ht-tint-purple-8: #7D55C7;
+      --ht-tint-purple-7: #8F6BCD; --ht-tint-purple-6: #9E81D5;
+      --ht-tint-purple-5: #AF95DC; --ht-tint-purple-4: #BFAAE3;
+      --ht-tint-purple-3: #D0BFEB; --ht-tint-purple-2: #DFD5F0;
+      --ht-tint-purple-1: #EEEAF8;
+
+      /* Tint Mint */
+      --ht-tint-mint-9: #1FD6DC; --ht-tint-mint-8: #39DBE0;
+      --ht-tint-mint-7: #51DFE3; --ht-tint-mint-6: #6CE3E9;
+      --ht-tint-mint-5: #82E8EC; --ht-tint-mint-4: #9CEDF0;
+      --ht-tint-mint-3: #B5F0F4; --ht-tint-mint-2: #CEF6F6;
+      --ht-tint-mint-1: #E6FAFB;
+
+      /* Extended Purple */
+      --ht-soft-purple:     #7D4BDC;
+      --ht-active-purple:   #6E2DD2;
+      --ht-eco-purple:      #8A75D0;
+      --ht-urban-purple:    #541CB8;
+      --ht-friendly-purple: #540099;
+      --ht-premium-purple:  #31007B;
+
+      /* Extended Mint */
+      --ht-soft-mint:     #70DCE6;
+      --ht-active-mint:   #00CFE5;
+      --ht-eco-mint:      #50B4C8;
+      --ht-urban-mint:    #08CDDE;
+      --ht-friendly-mint: #00C9D4;
+      --ht-premium-mint:  #00768F;
+
+      /* Neutral Gray */
+      --ht-white:       #FFFFFF; --ht-bright-gray: #EEEEF0;
+      --ht-light-gray:  #D0D0D2; --ht-medium-gray: #B5B5B6;
+      --ht-gray:        #9FA0A0; --ht-dark-gray:   #73747A;
+      --ht-slate-gray:  #53565F; --ht-deep-gray:   #313339;
+      --ht-black:       #000000;
+
+      /* Neutral Beige */
+      --ht-bright-beige: #F6F1E8; --ht-light-beige:  #E8DCC4;
+      --ht-medium-beige: #E5CB9E; --ht-beige:        #AC916D;
+      --ht-dark-beige:   #80705E; --ht-slate-beige:  #64584A;
+      --ht-deep-beige:   #4A4138;
+
+      /* Accent */
+      --ht-accent-yellow:   #FFE338; --ht-accent-lime:     #C6EB2F;
+      --ht-accent-green:    #00BF8F; --ht-accent-sky-blue: #4395FF;
+      --ht-accent-blue:     #2263E5; --ht-accent-pink:     #FF5AD2;
+
+      /* Semantic */
+      --ht-text-primary:   var(--ht-deep-gray);
+      --ht-text-secondary: var(--ht-slate-gray);
+      --ht-text-disabled:  var(--ht-medium-gray);
+      --ht-bg-primary:     var(--ht-white);
+      --ht-bg-subtle:      var(--ht-bright-gray);
+
+      /* Typography */
+      --ht-font-base: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      --ht-font-en:   'Inter', system-ui, sans-serif;
+
+      /* Spacing & Shape */
+      --ht-radius-sm: 6px;
+      --ht-radius-md: 10px;
+      --ht-radius-lg: 16px;
+      --ht-radius-xl: 24px;
+      --ht-radius-pill: 100px;
+    }
+
+    /* ════════════════════════════════════════
+     * 문서 기본 스타일
+     * ════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--ht-font-base);
+      background: var(--ht-bright-gray);
+      color: var(--ht-text-primary);
+      line-height: 1.6;
+    }
+    .doc-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ht-master-purple);
+      border-left: 4px solid var(--ht-master-mint);
+      padding-left: 12px;
+      margin: 48px 0 24px;
+    }
+    .section-title:first-child { margin-top: 0; }
+    .subsection { font-size: 14px; font-weight: 600; color: var(--ht-slate-gray); margin: 24px 0 12px; }
+    .component-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
+    .component-block { background: var(--ht-white); border-radius: var(--ht-radius-lg); padding: 24px; margin-bottom: 16px; }
+    .label { font-size: 11px; color: var(--ht-slate-gray); margin-top: 8px; text-align: center; font-weight: 500; }
+
+    /* ════════════════════════════════════════
+     * [1] Color Palette Display
+     * ════════════════════════════════════════ */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 8px;
+    }
+    .swatch {
+      border-radius: var(--ht-radius-sm);
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .swatch-color { height: 60px; }
+    .swatch-info {
+      background: var(--ht-white);
+      padding: 6px 8px;
+      font-size: 10px;
+      line-height: 1.4;
+    }
+    .swatch-name { font-weight: 600; color: var(--ht-deep-gray); }
+    .swatch-hex  { color: var(--ht-slate-gray); font-family: monospace; }
+
+    /* ════════════════════════════════════════
+     * [2] Button Components
+     * ════════════════════════════════════════ */
+    .ht-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 24px;
+      border-radius: var(--ht-radius-pill);
+      font-family: var(--ht-font-base);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    /* Primary — 가장 중요한 액션 */
+    .ht-btn--primary {
+      background: var(--ht-master-purple);
+      color: var(--ht-white);
+    }
+    .ht-btn--primary:hover { background: var(--ht-tint-purple-9); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(94,43,184,0.32); }
+
+    /* CTA — 전환 유도 (노란 배경 + 보라 텍스트) */
+    .ht-btn--cta {
+      background: var(--ht-accent-yellow);
+      color: var(--ht-master-purple);
+    }
+    .ht-btn--cta:hover { background: #FFD700; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(255,227,56,0.5); }
+
+    /* Secondary — 보조 액션 */
+    .ht-btn--secondary {
+      background: transparent;
+      color: var(--ht-master-purple);
+      border: 2px solid var(--ht-master-purple);
+    }
+    .ht-btn--secondary:hover { background: var(--ht-tint-purple-1); }
+
+    /* Ghost — 미니멀 */
+    .ht-btn--ghost {
+      background: transparent;
+      color: var(--ht-slate-gray);
+      border: 1px solid var(--ht-light-gray);
+    }
+    .ht-btn--ghost:hover { background: var(--ht-bright-gray); border-color: var(--ht-medium-gray); }
+
+    /* Mint — 보조 브랜드 */
+    .ht-btn--mint {
+      background: var(--ht-master-mint);
+      color: var(--ht-white);
+    }
+    .ht-btn--mint:hover { background: var(--ht-tint-mint-9); transform: translateY(-1px); }
+
+    /* Size variants */
+    .ht-btn--sm { padding: 8px 16px; font-size: 12px; }
+    .ht-btn--lg { padding: 16px 32px; font-size: 16px; }
+
+    /* ════════════════════════════════════════
+     * [3] Badge / Tag Components
+     * ════════════════════════════════════════ */
+    .ht-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: var(--ht-radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .ht-badge--premium  { background: var(--ht-premium-purple); color: var(--ht-white); }
+    .ht-badge--active   { background: var(--ht-active-purple);  color: var(--ht-white); }
+    .ht-badge--eco      { background: var(--ht-eco-mint);       color: var(--ht-white); }
+    .ht-badge--friendly { background: var(--ht-friendly-mint);  color: var(--ht-white); }
+    .ht-badge--urban    { background: var(--ht-urban-purple);   color: var(--ht-white); }
+    .ht-badge--soft     { background: var(--ht-soft-purple);    color: var(--ht-white); }
+    .ht-badge--new      { background: var(--ht-accent-pink);    color: var(--ht-white); }
+    .ht-badge--sale     { background: var(--ht-accent-yellow);  color: var(--ht-master-purple); }
+    .ht-badge--hot      { background: var(--ht-accent-green);   color: var(--ht-white); }
+
+    /* Outline 버전 */
+    .ht-badge--outline {
+      background: transparent;
+      border: 1px solid var(--ht-master-purple);
+      color: var(--ht-master-purple);
+    }
+    .ht-badge--outline-mint {
+      background: transparent;
+      border: 1px solid var(--ht-master-mint);
+      color: var(--ht-master-mint);
+    }
+
+    /* ════════════════════════════════════════
+     * [4] Card Components
+     * ════════════════════════════════════════ */
+    .ht-card {
+      background: var(--ht-white);
+      border-radius: var(--ht-radius-lg);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      transition: box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .ht-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.14); transform: translateY(-2px); }
+    .ht-card__image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .ht-card__image-placeholder {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+    .ht-card__body { padding: 16px; }
+    .ht-card__category {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ht-master-mint);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .ht-card__title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ht-deep-gray);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .ht-card__desc {
+      font-size: 13px;
+      color: var(--ht-slate-gray);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .ht-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--ht-bright-gray);
+    }
+    .ht-card__price {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ht-master-purple);
+    }
+    .ht-card__price-label {
+      font-size: 11px;
+      color: var(--ht-slate-gray);
+    }
+
+    /* Horizontal Card */
+    .ht-card--horizontal {
+      display: flex;
+      flex-direction: row;
+    }
+    .ht-card--horizontal .ht-card__image-placeholder {
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+    }
+
+    /* Theme Cards */
+    .ht-card--premium { border-top: 4px solid var(--ht-premium-purple); }
+    .ht-card--active  { border-top: 4px solid var(--ht-active-purple); }
+    .ht-card--eco     { border-top: 4px solid var(--ht-eco-mint); }
+
+    /* ════════════════════════════════════════
+     * [5] Hero Banner Components
+     * ════════════════════════════════════════ */
+    .ht-hero {
+      border-radius: var(--ht-radius-xl);
+      padding: 48px 40px;
+      color: var(--ht-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .ht-hero__kicker {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 8px;
+    }
+    .ht-hero__title {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .ht-hero__desc {
+      font-size: 15px;
+      opacity: 0.85;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .ht-hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* Default: Purple → Mint 그라디언트 */
+    .ht-hero--default {
+      background: linear-gradient(135deg, var(--ht-master-purple) 0%, #2B8FB8 100%);
+    }
+    /* Premium: 딥 퍼플 그라디언트 */
+    .ht-hero--premium {
+      background: linear-gradient(135deg, var(--ht-premium-purple) 0%, var(--ht-master-purple) 100%);
+    }
+    /* Active: 바이브런트 */
+    .ht-hero--active {
+      background: linear-gradient(135deg, var(--ht-active-purple) 0%, var(--ht-active-mint) 100%);
+    }
+    /* Eco: 민트-초록 */
+    .ht-hero--eco {
+      background: linear-gradient(135deg, var(--ht-eco-purple) 0%, var(--ht-eco-mint) 100%);
+    }
+    /* Light: 밝은 버전 */
+    .ht-hero--light {
+      background: linear-gradient(135deg, var(--ht-tint-purple-1) 0%, var(--ht-tint-mint-1) 100%);
+      color: var(--ht-master-purple);
+    }
+    .ht-hero--light .ht-hero__desc { opacity: 0.7; }
+
+    /* ════════════════════════════════════════
+     * [6] Form Components
+     * ════════════════════════════════════════ */
+    .ht-input-group { display: flex; flex-direction: column; gap: 6px; }
+    .ht-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ht-deep-gray);
+    }
+    .ht-input {
+      padding: 12px 16px;
+      border: 1.5px solid var(--ht-light-gray);
+      border-radius: var(--ht-radius-md);
+      font-family: var(--ht-font-base);
+      font-size: 14px;
+      color: var(--ht-deep-gray);
+      background: var(--ht-white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .ht-input:focus {
+      border-color: var(--ht-master-purple);
+      box-shadow: 0 0 0 3px rgba(94,43,184,0.12);
+    }
+    .ht-input::placeholder { color: var(--ht-medium-gray); }
+    .ht-input--error { border-color: #E53E3E; }
+    .ht-input--success { border-color: var(--ht-accent-green); }
+    .ht-hint { font-size: 12px; color: var(--ht-slate-gray); }
+    .ht-hint--error { color: #E53E3E; }
+
+    /* ════════════════════════════════════════
+     * [7] Tag / Chip Components
+     * ════════════════════════════════════════ */
+    .ht-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 14px;
+      border-radius: var(--ht-radius-pill);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1.5px solid var(--ht-light-gray);
+      background: var(--ht-white);
+      color: var(--ht-slate-gray);
+      transition: all 0.15s;
+    }
+    .ht-chip:hover { border-color: var(--ht-master-purple); color: var(--ht-master-purple); }
+    .ht-chip--active {
+      border-color: var(--ht-master-purple);
+      background: var(--ht-tint-purple-1);
+      color: var(--ht-master-purple);
+      font-weight: 600;
+    }
+
+    /* ════════════════════════════════════════
+     * [8] Alert / Notice Components
+     * ════════════════════════════════════════ */
+    .ht-alert {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px 20px;
+      border-radius: var(--ht-radius-md);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .ht-alert__icon { font-size: 18px; flex-shrink: 0; }
+    .ht-alert__title { font-weight: 700; margin-bottom: 2px; }
+    .ht-alert--info {
+      background: var(--ht-tint-purple-1);
+      border-left: 3px solid var(--ht-master-purple);
+      color: var(--ht-master-purple);
+    }
+    .ht-alert--success {
+      background: #ECFDF5;
+      border-left: 3px solid var(--ht-accent-green);
+      color: #065F46;
+    }
+    .ht-alert--warning {
+      background: #FFFBEB;
+      border-left: 3px solid var(--ht-accent-yellow);
+      color: #92400E;
+    }
+    .ht-alert--hint {
+      background: var(--ht-tint-mint-1);
+      border-left: 3px solid var(--ht-master-mint);
+      color: var(--ht-premium-mint);
+    }
+
+    /* ════════════════════════════════════════
+     * [9] Price / Discount Components
+     * ════════════════════════════════════════ */
+    .ht-price-block { display: flex; flex-direction: column; gap: 2px; }
+    .ht-price-original {
+      font-size: 13px;
+      color: var(--ht-medium-gray);
+      text-decoration: line-through;
+    }
+    .ht-price-discount {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ht-price-rate {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--ht-accent-pink);
+    }
+    .ht-price-final {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--ht-master-purple);
+    }
+    .ht-price-unit { font-size: 13px; color: var(--ht-slate-gray); font-weight: 400; }
+
+    /* ════════════════════════════════════════
+     * [10] Tab Components
+     * ════════════════════════════════════════ */
+    .ht-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--ht-light-gray);
+    }
+    .ht-tab {
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ht-medium-gray);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .ht-tab:hover { color: var(--ht-master-purple); }
+    .ht-tab--active {
+      color: var(--ht-master-purple);
+      border-bottom-color: var(--ht-master-purple);
+      font-weight: 700;
+    }
+
+    /* ════════════════════════════════════════
+     * 문서 레이아웃
+     * ════════════════════════════════════════ */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .page-header {
+      background: linear-gradient(135deg, var(--ht-master-purple) 0%, #2072B8 100%);
+      color: var(--ht-white);
+      padding: 40px;
+      border-radius: var(--ht-radius-xl);
+      margin-bottom: 40px;
+    }
+    .page-header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    .page-header p  { font-size: 15px; opacity: 0.8; }
+    code {
+      background: var(--ht-bright-gray);
+      color: var(--ht-master-purple);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+<div class="doc-container">
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>🎨 Hanatour Design System</h1>
+    <p>2026 Brand Color System — AI 개발 참조용 컴포넌트 라이브러리</p>
+  </div>
+
+
+  <!-- ════════════ 1. Color Palette ════════════ -->
+  <h2 class="section-title">1. 컬러 팔레트</h2>
+
+  <div class="component-block">
+    <div class="subsection">Master Colors</div>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#5E2BB8"></div>
+        <div class="swatch-info"><div class="swatch-name">Master Purple</div><div class="swatch-hex">#5E2BB8</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#08D1D9"></div>
+        <div class="swatch-info"><div class="swatch-name">Master Mint</div><div class="swatch-hex">#08D1D9</div></div>
+      </div>
+    </div>
+
+    <div class="subsection" style="margin-top:20px">Tint Purple (9→1)</div>
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#6E3FBF"></div><div class="swatch-info"><div class="swatch-name">TP-9</div><div class="swatch-hex">#6E3FBF</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#7D55C7"></div><div class="swatch-info"><div class="swatch-name">TP-8</div><div class="swatch-hex">#7D55C7</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#8F6BCD"></div><div class="swatch-info"><div class="swatch-name">TP-7</div><div class="swatch-hex">#8F6BCD</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#9E81D5"></div><div class="swatch-info"><div class="swatch-name">TP-6</div><div class="swatch-hex">#9E81D5</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#AF95DC"></div><div class="swatch-info"><div class="swatch-name">TP-5</div><div class="swatch-hex">#AF95DC</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#BFAAE3"></div><div class="swatch-info"><div class="swatch-name">TP-4</div><div class="swatch-hex">#BFAAE3</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#D0BFEB"></div><div class="swatch-info"><div class="swatch-name">TP-3</div><div class="swatch-hex">#D0BFEB</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#DFD5F0"></div><div class="swatch-info"><div class="swatch-name">TP-2</div><div class="swatch-hex">#DFD5F0</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#EEEAF8"></div><div class="swatch-info"><div class="swatch-name">TP-1</div><div class="swatch-hex">#EEEAF8</div></div></div>
+    </div>
+
+    <div class="subsection" style="margin-top:20px">Tint Mint (9→1)</div>
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#1FD6DC"></div><div class="swatch-info"><div class="swatch-name">TM-9</div><div class="swatch-hex">#1FD6DC</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#39DBE0"></div><div class="swatch-info"><div class="swatch-name">TM-8</div><div class="swatch-hex">#39DBE0</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#51DFE3"></div><div class="swatch-info"><div class="swatch-name">TM-7</div><div class="swatch-hex">#51DFE3</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#6CE3E9"></div><div class="swatch-info"><div class="swatch-name">TM-6</div><div class="swatch-hex">#6CE3E9</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#82E8EC"></div><div class="swatch-info"><div class="swatch-name">TM-5</div><div class="swatch-hex">#82E8EC</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#9CEDF0"></div><div class="swatch-info"><div class="swatch-name">TM-4</div><div class="swatch-hex">#9CEDF0</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#B5F0F4"></div><div class="swatch-info"><div class="swatch-name">TM-3</div><div class="swatch-hex">#B5F0F4</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#CEF6F6"></div><div class="swatch-info"><div class="swatch-name">TM-2</div><div class="swatch-hex">#CEF6F6</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#E6FAFB"></div><div class="swatch-info"><div class="swatch-name">TM-1</div><div class="swatch-hex">#E6FAFB</div></div></div>
+    </div>
+
+    <div class="subsection" style="margin-top:20px">Extended Colors (콘텐츠 목적별)</div>
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#7D4BDC"></div><div class="swatch-info"><div class="swatch-name">Soft Purple</div><div class="swatch-hex">#7D4BDC</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#70DCE6"></div><div class="swatch-info"><div class="swatch-name">Soft Mint</div><div class="swatch-hex">#70DCE6</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#6E2DD2"></div><div class="swatch-info"><div class="swatch-name">Active Purple</div><div class="swatch-hex">#6E2DD2</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#00CFE5"></div><div class="swatch-info"><div class="swatch-name">Active Mint</div><div class="swatch-hex">#00CFE5</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#8A75D0"></div><div class="swatch-info"><div class="swatch-name">Eco Purple</div><div class="swatch-hex">#8A75D0</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#50B4C8"></div><div class="swatch-info"><div class="swatch-name">Eco Mint</div><div class="swatch-hex">#50B4C8</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#541CB8"></div><div class="swatch-info"><div class="swatch-name">Urban Purple</div><div class="swatch-hex">#541CB8</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#08CDDE"></div><div class="swatch-info"><div class="swatch-name">Urban Mint</div><div class="swatch-hex">#08CDDE</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#540099"></div><div class="swatch-info"><div class="swatch-name">Friendly Purple</div><div class="swatch-hex">#540099</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#00C9D4"></div><div class="swatch-info"><div class="swatch-name">Friendly Mint</div><div class="swatch-hex">#00C9D4</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#31007B"></div><div class="swatch-info"><div class="swatch-name">Premium Purple</div><div class="swatch-hex">#31007B</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#00768F"></div><div class="swatch-info"><div class="swatch-name">Premium Mint</div><div class="swatch-hex">#00768F</div></div></div>
+    </div>
+
+    <div class="subsection" style="margin-top:20px">Accent Colors</div>
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#FFE338"></div><div class="swatch-info"><div class="swatch-name">Yellow</div><div class="swatch-hex">#FFE338</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#C6EB2F"></div><div class="swatch-info"><div class="swatch-name">Lime</div><div class="swatch-hex">#C6EB2F</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#00BF8F"></div><div class="swatch-info"><div class="swatch-name">Green</div><div class="swatch-hex">#00BF8F</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#4395FF"></div><div class="swatch-info"><div class="swatch-name">Sky Blue</div><div class="swatch-hex">#4395FF</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#2263E5"></div><div class="swatch-info"><div class="swatch-name">Blue</div><div class="swatch-hex">#2263E5</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#FF5AD2"></div><div class="swatch-info"><div class="swatch-name">Pink</div><div class="swatch-hex">#FF5AD2</div></div></div>
+    </div>
+  </div>
+
+
+  <!-- ════════════ 2. Buttons ════════════ -->
+  <h2 class="section-title">2. 버튼 (Button)</h2>
+  <div class="component-block">
+    <div class="subsection">버튼 종류</div>
+    <div class="component-row">
+      <div>
+        <button class="ht-btn ht-btn--primary">Primary 버튼</button>
+        <div class="label"><code>.ht-btn--primary</code></div>
+      </div>
+      <div>
+        <button class="ht-btn ht-btn--cta">지금 예약하기 →</button>
+        <div class="label"><code>.ht-btn--cta</code> (CTA)</div>
+      </div>
+      <div>
+        <button class="ht-btn ht-btn--secondary">Secondary 버튼</button>
+        <div class="label"><code>.ht-btn--secondary</code></div>
+      </div>
+      <div>
+        <button class="ht-btn ht-btn--mint">Mint 버튼</button>
+        <div class="label"><code>.ht-btn--mint</code></div>
+      </div>
+      <div>
+        <button class="ht-btn ht-btn--ghost">Ghost 버튼</button>
+        <div class="label"><code>.ht-btn--ghost</code></div>
+      </div>
+    </div>
+
+    <div class="subsection">크기 변형</div>
+    <div class="component-row" style="align-items:center">
+      <button class="ht-btn ht-btn--primary ht-btn--sm">Small</button>
+      <button class="ht-btn ht-btn--primary">Default</button>
+      <button class="ht-btn ht-btn--primary ht-btn--lg">Large</button>
+    </div>
+  </div>
+
+
+  <!-- ════════════ 3. Badges ════════════ -->
+  <h2 class="section-title">3. 배지 / 태그 (Badge)</h2>
+  <div class="component-block">
+    <div class="subsection">여행 카테고리 배지</div>
+    <div class="component-row">
+      <span class="ht-badge ht-badge--premium">✦ 프리미엄</span>
+      <span class="ht-badge ht-badge--active">⚡ 액티비티</span>
+      <span class="ht-badge ht-badge--eco">🌿 친환경</span>
+      <span class="ht-badge ht-badge--friendly">👨‍👩‍👧 가족여행</span>
+      <span class="ht-badge ht-badge--urban">🏙 도시여행</span>
+      <span class="ht-badge ht-badge--soft">🌸 봄여행</span>
+    </div>
+    <div class="subsection" style="margin-top:16px">프로모션 배지</div>
+    <div class="component-row">
+      <span class="ht-badge ht-badge--new">NEW</span>
+      <span class="ht-badge ht-badge--sale">SALE 30%</span>
+      <span class="ht-badge ht-badge--hot">🔥 HOT</span>
+      <span class="ht-badge ht-badge--outline">추천</span>
+      <span class="ht-badge ht-badge--outline-mint">하나팩</span>
+    </div>
+  </div>
+
+
+  <!-- ════════════ 4. Cards ════════════ -->
+  <h2 class="section-title">4. 카드 (Card)</h2>
+  <div class="cards-grid">
+    <!-- Standard Card -->
+    <div class="ht-card">
+      <div class="ht-card__image-placeholder" style="background:linear-gradient(135deg,#5E2BB8,#08D1D9)">✈️</div>
+      <div class="ht-card__body">
+        <div class="ht-card__category">해외여행 · 유럽</div>
+        <div class="ht-card__title">프라하+비엔나 7일 패키지</div>
+        <div class="ht-card__desc">동화 속 도시에서 보내는 완벽한 유럽 여행</div>
+        <div style="margin-bottom:12px"><span class="ht-badge ht-badge--sale">20% OFF</span></div>
+        <div class="ht-card__footer">
+          <div class="ht-price-block">
+            <div class="ht-price-original">2,890,000원</div>
+            <div class="ht-price-discount">
+              <span class="ht-price-rate">20%</span>
+              <span class="ht-price-final">2,312,000<span class="ht-price-unit">원~</span></span>
+            </div>
+          </div>
+          <button class="ht-btn ht-btn--primary ht-btn--sm">예약</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Premium Card -->
+    <div class="ht-card ht-card--premium">
+      <div class="ht-card__image-placeholder" style="background:linear-gradient(135deg,#31007B,#5E2BB8)">🏖</div>
+      <div class="ht-card__body">
+        <div class="ht-card__category" style="color:var(--ht-premium-purple)">프리미엄 · 몰디브</div>
+        <div class="ht-card__title">몰디브 수상 빌라 5박 7일</div>
+        <div class="ht-card__desc">한 단계 높은 휴식, 프리미엄 여행의 정석</div>
+        <div style="margin-bottom:12px"><span class="ht-badge ht-badge--premium">✦ 프리미엄</span></div>
+        <div class="ht-card__footer">
+          <div class="ht-price-block">
+            <div class="ht-price-final" style="color:var(--ht-premium-purple)">8,500,000<span class="ht-price-unit">원~</span></div>
+          </div>
+          <button class="ht-btn ht-btn--primary ht-btn--sm" style="background:var(--ht-premium-purple)">예약</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eco Card -->
+    <div class="ht-card ht-card--eco">
+      <div class="ht-card__image-placeholder" style="background:linear-gradient(135deg,#8A75D0,#50B4C8)">🌿</div>
+      <div class="ht-card__body">
+        <div class="ht-card__category" style="color:var(--ht-eco-mint)">친환경 · 제주</div>
+        <div class="ht-card__title">제주 친환경 웰니스 여행</div>
+        <div class="ht-card__desc">착한 여행 서약 이벤트와 함께하는 힐링 투어</div>
+        <div style="margin-bottom:12px"><span class="ht-badge ht-badge--eco">🌿 친환경</span></div>
+        <div class="ht-card__footer">
+          <div class="ht-price-block">
+            <div class="ht-price-final" style="color:var(--ht-eco-mint)">450,000<span class="ht-price-unit">원~</span></div>
+          </div>
+          <button class="ht-btn ht-btn--sm" style="background:var(--ht-eco-mint);color:white;border:none;padding:8px 16px;border-radius:100px;font-weight:600;cursor:pointer">예약</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════ 5. Hero Banners ════════════ -->
+  <h2 class="section-title">5. 히어로 배너 (Hero Banner)</h2>
+
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <!-- Default -->
+    <div class="ht-hero ht-hero--default">
+      <div class="ht-hero__kicker">하나투어 특가 이벤트</div>
+      <div class="ht-hero__title">지금 바로 떠나는<br>특별한 여행</div>
+      <div class="ht-hero__desc">총 50만원 상당 쿠폰팩 증정! 하나투어 회원 한정</div>
+      <div class="ht-hero__actions">
+        <button class="ht-btn ht-btn--cta">지금 예약하기 →</button>
+        <button class="ht-btn ht-btn--ghost" style="color:white;border-color:rgba(255,255,255,0.4)">자세히 보기</button>
+      </div>
+    </div>
+
+    <!-- Premium -->
+    <div class="ht-hero ht-hero--premium">
+      <div class="ht-hero__kicker">PREMIUM COLLECTION</div>
+      <div class="ht-hero__title">여유롭고 품격 있는<br>럭셔리 휴식 여행</div>
+      <div class="ht-hero__desc">한 단계 높은 휴식, 프리미엄 여행의 정석</div>
+      <div class="ht-hero__actions">
+        <button class="ht-btn" style="background:var(--ht-accent-yellow);color:var(--ht-premium-purple);padding:12px 24px;border-radius:100px;font-size:14px;font-weight:700;border:none;cursor:pointer">컬렉션 보기 →</button>
+      </div>
+    </div>
+
+    <!-- Light -->
+    <div class="ht-hero ht-hero--light">
+      <div class="ht-hero__kicker" style="color:var(--ht-tint-purple-6)">봄 여행 캠페인</div>
+      <div class="ht-hero__title">미리 여행 준비해 봄 🌸</div>
+      <div class="ht-hero__desc">하나투어와 함께 떠나기 전, 봄 여행 준비 꿀팁!</div>
+      <div class="ht-hero__actions">
+        <button class="ht-btn ht-btn--primary">여행 준비하기</button>
+        <button class="ht-btn ht-btn--secondary">상품 보기</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════ 6. Forms ════════════ -->
+  <h2 class="section-title">6. 폼 (Form Input)</h2>
+  <div class="component-block" style="max-width:480px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="ht-input-group">
+        <label class="ht-label">출발지</label>
+        <input class="ht-input" type="text" placeholder="출발 도시를 입력하세요">
+        <span class="ht-hint">예: 서울(인천), 서울(김포)</span>
+      </div>
+      <div class="ht-input-group">
+        <label class="ht-label">여행 인원</label>
+        <input class="ht-input ht-input--success" type="number" placeholder="0" value="2">
+      </div>
+      <div class="ht-input-group">
+        <label class="ht-label">이메일</label>
+        <input class="ht-input ht-input--error" type="email" placeholder="email@example.com" value="wrong-format">
+        <span class="ht-hint ht-hint--error">올바른 이메일 형식으로 입력해주세요.</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════ 7. Chips / Tabs ════════════ -->
+  <h2 class="section-title">7. 필터 칩 / 탭 (Chip, Tab)</h2>
+  <div class="component-block">
+    <div class="subsection">카테고리 필터 칩</div>
+    <div class="component-row">
+      <span class="ht-chip ht-chip--active">전체</span>
+      <span class="ht-chip">항공권</span>
+      <span class="ht-chip">호텔</span>
+      <span class="ht-chip">패키지</span>
+      <span class="ht-chip">투어</span>
+      <span class="ht-chip">액티비티</span>
+    </div>
+
+    <div class="subsection" style="margin-top:24px">탭 내비게이션</div>
+    <div class="ht-tabs">
+      <div class="ht-tab ht-tab--active">추천 상품</div>
+      <div class="ht-tab">특가 할인</div>
+      <div class="ht-tab">신규 출시</div>
+      <div class="ht-tab">인기 여행지</div>
+    </div>
+  </div>
+
+
+  <!-- ════════════ 8. Alerts ════════════ -->
+  <h2 class="section-title">8. 알림 / 공지 (Alert)</h2>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div class="ht-alert ht-alert--info">
+      <div class="ht-alert__icon">ℹ️</div>
+      <div><div class="ht-alert__title">쿠폰 적용 안내</div>하나투어 회원 전용 쿠폰은 결제 최종 단계에서 적용 가능합니다.</div>
+    </div>
+    <div class="ht-alert ht-alert--success">
+      <div class="ht-alert__icon">✅</div>
+      <div><div class="ht-alert__title">예약이 완료되었습니다</div>여행 일정 확인 이메일을 발송했습니다. 마이페이지에서 확인하세요.</div>
+    </div>
+    <div class="ht-alert ht-alert--warning">
+      <div class="ht-alert__icon">⚠️</div>
+      <div><div class="ht-alert__title">마감 임박</div>해당 상품의 잔여 좌석이 3석 이하입니다. 지금 바로 예약하세요.</div>
+    </div>
+    <div class="ht-alert ht-alert--hint">
+      <div class="ht-alert__icon">💡</div>
+      <div><div class="ht-alert__title">여행 팁</div>봄 시즌 유럽 여행은 3개월 전 예약 시 최대 30% 절약 가능합니다.</div>
+    </div>
+  </div>
+
+
+  <!-- ════════════ 9. Price Display ════════════ -->
+  <h2 class="section-title">9. 가격 표시 (Price)</h2>
+  <div class="component-block">
+    <div class="component-row" style="gap:32px">
+      <!-- 정상가 -->
+      <div>
+        <div class="subsection">정상가</div>
+        <div class="ht-price-final">1,290,000<span class="ht-price-unit">원</span></div>
+      </div>
+      <!-- 할인가 -->
+      <div>
+        <div class="subsection">할인 표시</div>
+        <div class="ht-price-block">
+          <div class="ht-price-original">2,890,000원</div>
+          <div class="ht-price-discount">
+            <span class="ht-price-rate">20%</span>
+            <span class="ht-price-final">2,312,000<span class="ht-price-unit">원~</span></span>
+          </div>
+        </div>
+      </div>
+      <!-- 프리미엄 가격 -->
+      <div>
+        <div class="subsection">프리미엄</div>
+        <div class="ht-price-final" style="color:var(--ht-premium-purple);font-size:26px">8,500,000<span style="font-size:14px;color:var(--ht-slate-gray);font-weight:400">원~</span></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════ Footer ════════════ -->
+  <div style="text-align:center;padding:40px 0 0;color:var(--ht-medium-gray);font-size:12px">
+    Hanatour Design System · 2026 Brand Color System &amp; Brand Guide<br>
+    AI 개발 참조용 컴포넌트 문서 — hanatour-design-system.md 기준
+  </div>
+
+</div>
+</body>
+</html>

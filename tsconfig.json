@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "react": ["/Users/yoon/node_modules/react"],
+      "react-dom": ["/Users/yoon/node_modules/react-dom"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"]
+}
