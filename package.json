@@ -1,0 +1,17 @@
+{
+  "name": "hanatour-design-system",
+  "version": "1.0.0",
+  "description": "Hanatour Design System Setup Utility",
+  "main": "scripts/setup.js",
+  "bin": {
+    "hanatour-setup": "scripts/setup.js"
+  },
+  "keywords": [
+    "hanatour",
+    "design-system",
+    "tailwind",
+    "react"
+  ],
+  "author": "Hanatour",
+  "license": "ISC"
+}
